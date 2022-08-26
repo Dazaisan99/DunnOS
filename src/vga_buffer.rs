@@ -137,10 +137,3 @@ macro_rules! println {
 pub fn _print(args: core::fmt::Arguments) {
     WRITER.lock().write_fmt(args).unwrap();
 }
-
-#[test_case]
-fn test_println_many() {
-    for i in 0..200 {
-        println!("{}", i);
-    }
-}

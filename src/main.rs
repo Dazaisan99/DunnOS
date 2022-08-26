@@ -9,10 +9,20 @@ use dunn_os::println;
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-    println!("Hello DunnOS !");
+    println!("Hello DunnOS !\n");
+
+    dunn_os::init();
+
+    fn so() {
+        so();
+    }
+
+    so();
 
     #[cfg(test)]
     test_main();
+
+    println!("Didn't Crash ! Yay");
 
     loop {}
 }
